@@ -319,8 +319,8 @@ func SelectAll(table SQLTableNamer, flags ...Flag) *Query {
 
 // DeleteFrom starts a new [Query] that will delete from the table mapped to
 // the passed [SQLTableNamer].
-func DeleteFrom(table SQLTableNamer) *Query {
-	return New("DELETE FROM " + Table(table))
+func DeleteFrom(table string) *Query {
+	return New("DELETE FROM " + table)
 }
 
 // Args returns a slice of the arguments attached to the Query, which should be used when executing

@@ -114,8 +114,8 @@ func FindSQLTableNamers(ctx context.Context, dir string, pkgPatterns []string) (
 					return true
 				}
 
-				funcDecl, ok := node.(*ast.FuncDecl)
-				if !ok {
+				funcDecl, hasFuncDecl := node.(*ast.FuncDecl)
+				if !hasFuncDecl {
 					return false
 				}
 
@@ -127,8 +127,8 @@ func FindSQLTableNamers(ctx context.Context, dir string, pkgPatterns []string) (
 					return false
 				}
 
-				returnStmt, ok := funcDecl.Body.List[0].(*ast.ReturnStmt)
-				if !ok {
+				returnStmt, hasReturnStmt := funcDecl.Body.List[0].(*ast.ReturnStmt)
+				if !hasReturnStmt {
 					return false
 				}
 
@@ -136,8 +136,8 @@ func FindSQLTableNamers(ctx context.Context, dir string, pkgPatterns []string) (
 					return false
 				}
 
-				tableName, ok := returnStmt.Results[0].(*ast.BasicLit)
-				if !ok {
+				tableName, hasTableName := returnStmt.Results[0].(*ast.BasicLit)
+				if !hasTableName {
 					return false
 				}
 
@@ -154,8 +154,8 @@ func FindSQLTableNamers(ctx context.Context, dir string, pkgPatterns []string) (
 				case *ast.Ident:
 					methodName = methodType.Name
 				case *ast.StarExpr:
-					nonStar, ok := methodType.X.(*ast.Ident)
-					if !ok {
+					nonStar, hasIdent := methodType.X.(*ast.Ident)
+					if !hasIdent {
 						return false
 					}
 					methodName = nonStar.Name

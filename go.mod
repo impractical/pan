@@ -1,4 +1,4 @@
-module darlinggo.co/pan
+module impractical.co/pan
 
 go 1.25.0
 

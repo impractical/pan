@@ -298,7 +298,7 @@ formatters:
       simplify: false
     goimports:
       local-prefixes:
-        - darlinggo.co
+        - impractical.co
   exclusions:
     generated: lax
     paths:

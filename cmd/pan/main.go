@@ -25,7 +25,7 @@ func main() {
 		Name:                "pan",
 		Version:             version,
 		Description:         "A CLI for generating mapping between SQL table columns and Go types.",
-		DetailedDescription: "pan helps manage the files that are generated as aids for the darlinggo.co/pan package. Its main command, `pan generate`, finds all the structs in one or more packages that implement the darlinggo.co/pan.SQLTableNamer interface and generates types for them. These types have a method on them for each struct field mapped to a SQL column, and the methods return the SQL column name, optionally with various quotation options. This allows the compiler-assisted referencing of database column names from within your Go code.",
+		DetailedDescription: "pan helps manage the files that are generated as aids for the impractical.co/pan package. Its main command, `pan generate`, finds all the structs in one or more packages that implement the impractical.co/pan.SQLTableNamer interface and generates types for them. These types have a method on them for each struct field mapped to a SQL column, and the methods return the SQL column name, optionally with various quotation options. This allows the compiler-assisted referencing of database column names from within your Go code.",
 		Commands: []clif.Command{
 			generateCmd,
 		},

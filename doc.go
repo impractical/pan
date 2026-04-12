@@ -13,7 +13,7 @@
 // columns, and make it easier to parse a query's results into a struct. This
 // is entirely optional, however.
 //
-// Finally, the pan cmd found in darlinggo.co/pan/cmd/pan can be used to
+// Finally, the pan cmd found in impractical.co/pan/cmd/pan can be used to
 // generate helpers for retrieving a struct field's column name at compile
 // time. This offers compiler and language server assistance that the
 // reflection-based [Column] method cannot. It is also entirely optional.
