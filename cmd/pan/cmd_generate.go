@@ -276,7 +276,7 @@ func (handler generateHandler) generateForPackage(_ context.Context, dir string,
 	outputFilename, outputExtension, _ := strings.Cut(handler.GeneratedFilename, ".")
 	testOutputFilename := outputFilename + "_test." + outputExtension
 	testOutputPath := filepath.Join(dir, testOutputFilename)
-	testOutput, err := os.Create(testOutputPath)
+	testOutput, err := os.Create(testOutputPath) //nolint:gosec // variable inclusion is unavoidable and doesn't open up a new capability
 	if err != nil {
 		fmt.Fprintf(resp.Error, "Error writing to %s: %s\r\n", testOutputPath, err.Error()) //nolint:errcheck // nothing to be done if we can't report errors
 		resp.Code = 1
