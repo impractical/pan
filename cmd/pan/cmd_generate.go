@@ -115,7 +115,7 @@ type generateHandler struct {
 // Handle is a method that will be called when the command is executed.
 // It should contain the business logic of the command.
 func (handler generateHandler) Handle(ctx context.Context, resp *clif.Response) {
-	implPackages, err := FindSQLTableNamers(ctx, "", os.Args[1:])
+	implPackages, err := FindSQLTableNamers(ctx, "", handler.Packages)
 	if err != nil {
 		fmt.Fprintln(resp.Error, "Error searching for SQLTableNamer implementations:", err) //nolint:errcheck // nothing to be done if we can't report errors
 		resp.Code = 1
