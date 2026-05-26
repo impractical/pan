@@ -171,7 +171,10 @@ func (handler generateHandler) generateForPackage(_ context.Context, dir string,
 		}
 		if handler.TableConstantSuffix != "" {
 			defsGroup.Line()
-			for name, table := range tables {
+			tableNames := slices.Collect(maps.Keys(tables))
+			slices.Sort(tableNames)
+			for _, name := range tableNames {
+				table := tables[name]
 				defsGroup.Commentf("%s is the name of the table mapped to %s.", name+handler.TableConstantSuffix, name)
 				defsGroup.Id(name + handler.TableConstantSuffix).Op("=").Lit(table)
 			}
