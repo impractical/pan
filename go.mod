@@ -4,7 +4,7 @@ go 1.25.0
 
 require (
 	github.com/dave/jennifer v1.7.1
-	github.com/mattn/go-sqlite3 v1.14.44
+	github.com/mattn/go-sqlite3 v1.14.45
 	golang.org/x/tools v0.45.0
 	impractical.co/clif v0.4.0
 )
